@@ -33,9 +33,7 @@ var vm = new Vue({
     })
     .then(function(json) {
     // レスポンスが200番で返ってきたときの処理はここに記述する
-    console.log(json.posts);
     vm.posts = json.posts;
-    console.log(vm.posts);
     })
     .catch(function(err) {
     // レスポンスがエラーで返ってきたときの処理はここに記述する
