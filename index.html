@@ -27,6 +27,7 @@
 
         <form class="ui large form" v-on:submit.prevent = "create">
           <div class="field">
+            <label>テキスト</label>
             <div class="ui left icon input">
               <textarea placeholder="ここに投稿内容を記載してください（必須）" v-model="post.text"></textarea>
             </div>
