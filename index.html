@@ -43,8 +43,26 @@
           </button>
         </form>
 
-      </div>
+        <div class="ui segments">
+          <div class="ui segment" v-for="post in posts">
+            <h2 class="ui header">
+              {{ post.userId }}
+                <div class="content">
+                  <div class="ui green label">
+                    {{ post.timestamp }}
+                  </div>
+                  <div class="ui green label"　v-if="post.category">
+                    {{ post.category }}
+                  </div>
+                </div>
+              <div class="sub header">
+                {{ post.text }}
+              </div>
+            </h2>
+          </div>
+        </div>
 
+      </div>
     </div>
 
     <!-- APIのURLを読み込むJavaScriptファイル -->
