@@ -24,7 +24,24 @@
       <common-menu current="home"></common-menu>
       <div class="ui main container">
         <!-- 基本的なコンテンツはここに記載する -->
-        <h1>hello world!</h1>
+
+        <form class="ui large form">
+          <div class="field">
+            <div class="ui left icon input">
+              <textarea placeholder="ここに投稿内容を記載してください（必須）"></textarea>
+            </div>
+          </div>
+
+          <div class="field">
+            <label>カテゴリ</label>
+            <input type="text" placeholder="ここにカテゴリを記載してください（任意）">
+          </div>
+
+          <button class="ui huge green fluid button" type="submit" >
+            投稿
+          </button>
+        </form>
+
       </div>
 
     </div>
