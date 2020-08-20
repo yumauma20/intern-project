@@ -2,6 +2,11 @@ var vm = new Vue({
     el: "#app", // Vue.jsを使うタグのIDを指定
     data: {
     // Vue.jsで使う変数はここに記述する
+      post: {
+        "userId" : null,
+        "text": null,
+        "category" : null
+      }
     },
     computed: {
     // 計算した結果を変数として利用したいときはここに記述する
@@ -14,5 +19,35 @@ var vm = new Vue({
     },
     methods: {
     // Vue.jsで使う関数はここで記述する
+      create: function() {
+      fetch(url + "/post", {
+        method: "POST",
+        body: JSON.stringify({
+            "userId": localStorage.getItem('userId'),
+            "text": vm.post.text,
+            "category": vm.post.category
+        })
+      })
+        .then(function(response) {
+            if (response.status == 200) {
+                return response.json();
+            }
+            // 200番以外のレスポンスはエラーを投げる
+            return response.json().then(function(json) {
+                throw new Error(json.message);
+            });
+        })
+        .then(function(json) {
+          // レスポンスが200番で返ってきたときの処理はここに記述する
+          var content = JSON.stringify(json, null, 2);
+          console.log(content);
+          location.href　= ('./index.html');
+        })
+        .catch(function(err) {
+          // レスポンスがエラーで返ってきたときの処理はここに記述する
+          var content = JSON.stringify(err, null, 2);
+          console.log(content);
+        });
     },
+  },
 });

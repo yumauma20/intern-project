@@ -25,16 +25,16 @@
       <div class="ui main container">
         <!-- 基本的なコンテンツはここに記載する -->
 
-        <form class="ui large form">
+        <form class="ui large form" v-on:submit.prevent = "create">
           <div class="field">
             <div class="ui left icon input">
-              <textarea placeholder="ここに投稿内容を記載してください（必須）"></textarea>
+              <textarea placeholder="ここに投稿内容を記載してください（必須）" v-model="post.text"></textarea>
             </div>
           </div>
 
           <div class="field">
             <label>カテゴリ</label>
-            <input type="text" placeholder="ここにカテゴリを記載してください（任意）">
+            <input type="text" placeholder="ここにカテゴリを記載してください（任意）" v-model="post.category">
           </div>
 
           <button class="ui huge green fluid button" type="submit" >
